@@ -6,7 +6,18 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 # alias for quick DNS cache flushing
-alias fc='sudo dscacheutil -flushcache'
+alias fc="sudo dscacheutil -flushcache"
+
+# git laziness
+alias ga="git add"
+alias gc="git commit -m"
+alias gpull="git pull"
+alias gpush="git push"
+alias gsub="git submodule update --init"
+
+# default to flambouyancy
+alias ls="ls -G"
+export LSCOLORS="exfxcxdxbxegedabagacad"
 
 # @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
 # Shamelessly copied from https://github.com/gf3/dotfiles
