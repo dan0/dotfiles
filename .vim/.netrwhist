@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/ddrayne/web-site-player'
+let g:netrw_dirhist_2='/home/ddrayne/web-site-player/test'
+let g:netrw_dirhist_3='/home/ddrayne/web-site-player'
+let g:netrw_dirhist_4='/home/ddrayne/web-site-player/src'
+let g:netrw_dirhist_5='/home/ddrayne/web-site-player/src/static'
+let g:netrw_dirhist_6='/home/ddrayne/web-site-player/src/static/client'
+let g:netrw_dirhist_7='/home/ddrayne/web-site-player/src/static/client/js'
