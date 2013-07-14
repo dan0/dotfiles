@@ -2,6 +2,7 @@
  let mapleader=","
  filetype off                   " required!
 
+ syntax on
  let &t_Co=256
 
  set rtp+=~/.vim/bundle/vundle/
@@ -18,6 +19,10 @@
  Bundle 'mileszs/ack.vim'
  Bundle 'scrooloose/nerdtree'
  Bundle 'scrooloose/syntastic'
+ Bundle 'jelera/vim-javascript-syntax'
+ Bundle 'pangloss/vim-javascript'
+ Bundle 'nathanaelkane/vim-indent-guides'
+ Bundle 'marijnh/tern_for_vim'
 
  " Automatically open nerdtree if no files open
  autocmd vimenter * if !argc() | NERDTree | endif
@@ -60,6 +65,10 @@ noremap <leader>t :tabnew<CR>
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
 
+ 
+ set expandtab
+ set shiftwidth=2
+ set softtabstop=2
 
  autocmd FileType javascript set expandtab shiftwidth=2
  " When vimrc is edited, reload it
