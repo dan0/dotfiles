@@ -9,6 +9,9 @@
  call vundle#rc()
 
 
+ "-------------------------------------
+ "  Bundles 
+ "-------------------------------------
  " let Vundle manage Vundle
  " required! 
  Bundle 'gmarik/vundle'
@@ -22,49 +25,82 @@
  Bundle 'jelera/vim-javascript-syntax'
  Bundle 'pangloss/vim-javascript'
  Bundle 'nathanaelkane/vim-indent-guides'
- Bundle 'marijnh/tern_for_vim'
- Bundle 'vim-scripts/simple-pairs'
+ "Bundle 'marijnh/tern_for_vim'
+ "Bundle 'vim-scripts/simple-pairs'
+
+ "Snipmate requirements
+ Bundle "MarcWeber/vim-addon-mw-utils"
+ Bundle "tomtom/tlib_vim"
+ Bundle 'garbas/vim-snipmate'
+
+ filetype plugin indent on     " required!
 
  " Automatically open nerdtree if no files open
  autocmd vimenter * if !argc() | NERDTree | endif
 
  " Nerdtree with ctrl+n
  map <C-n> :NERDTreeToggle<CR>
- 
- " let g:hybrid_use_Xresources = 1
+
+
+ "----------------------------------
+ "  Terminal
+ "----------------------------------
+ set ttyfast           " this is the 21st century, people"
+
+
+ "-------------------------------------
+ "  Whitespace
+ "-------------------------------------
+ " Trailing whitespace, highlight and strip
+ highlight ExtraWhitespace ctermbg=red guibg=red
+ match ExtraWhitespace /\s\+$/
+ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+ autocmd BufWinLeave * call clearmatches()
+
+ function! TrimWhiteSpace()
+   %s/\s\+$//e
+ endfunction
+ autocmd BufWritePre     *.js :call TrimWhiteSpace()
+
+
+ "-------------------------------------
+ "  Colours
+ "-------------------------------------
  colorscheme hybrid
 
+
+
+ "-------------------------------------
+ "  Editing etc.
+ "-------------------------------------
+ if exists('+colorcolumn')
+   set colorcolumn=80    " display a line in column 80 to show you
+                         " when to line break.
+ endif
+
  set showmode
- set showcmd
+ set showcmd " In the status bar, show incomplete commands as they are typed 
  set shortmess=atI
  set laststatus=2
 
  set statusline=%(\ %f%m%r%{&paste?'[PASTE]':''}\ %)%=%(\ y=%l,x=%v:%=%p%%\ %)
 
-set splitbelow
-set splitright
-set fillchars=stl:-,vert:\|,fold:-,diff:-
+ set splitbelow
+ set splitright
+ set fillchars=stl:-,vert:\|,fold:-,diff:-
 
-" navigate between windws
-noremap <C-j> <C-w>W
-noremap <C-k> <C-W>w
-noremap <C-w><C-j> <C-w>W
-noremap <C-w><C-k> <C-W>w
-noremap <C-w>j <C-w>W
-noremap <C-w>k <C-W>w
-noremap <C-w><C-w> <C-w>p
+ " navigate between windws
+ noremap <C-j> <C-w>W
+ noremap <C-k> <C-W>w
+ noremap <C-w><C-j> <C-w>W
+ noremap <C-w><C-k> <C-W>w
+ noremap <C-w>j <C-w>W
+ noremap <C-w>k <C-W>w
+ noremap <C-w><C-w> <C-w>p
 
-noremap <leader>t :tabnew<CR>
-
- filetype plugin indent on     " required!
- "
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
- "
- " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
+ noremap <leader>t :tabnew<CR>
 
  
  set expandtab
