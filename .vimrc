@@ -25,22 +25,34 @@
  Bundle 'jelera/vim-javascript-syntax'
  Bundle 'pangloss/vim-javascript'
  Bundle 'nathanaelkane/vim-indent-guides'
- "Bundle 'marijnh/tern_for_vim'
- "Bundle 'vim-scripts/simple-pairs'
+ Bundle 'tpope/vim-fugitive'
+ Bundle 'mhinz/vim-startify'
+ Bundle 'bling/vim-airline'
 
+ "groenewege Less Highlighting
+ Bundle 'hail2u/vim-css3-syntax'
+ Bundle 'lunaru/vim-less'
+ nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
+ au BufNewFile,BufRead *.less set filetype=less
+ 
  "Snipmate requirements
  Bundle "MarcWeber/vim-addon-mw-utils"
  Bundle "tomtom/tlib_vim"
  Bundle 'garbas/vim-snipmate'
 
+ "let g:tern_map_keys=1
+ "let g:tern_show_argument_hints='on_hold'
+
  filetype plugin indent on     " required!
 
  " Automatically open nerdtree if no files open
- autocmd vimenter * if !argc() | NERDTree | endif
+ "autocmd vimenter * if !argc() | NERDTree | endif
 
  " Nerdtree with ctrl+n
  map <C-n> :NERDTreeToggle<CR>
 
+ " Powerline/airline font handling
+ let g:airline_powerline_fonts = 1
 
  "----------------------------------
  "  Terminal
@@ -68,7 +80,7 @@
  "-------------------------------------
  "  Colours
  "-------------------------------------
- colorscheme hybrid
+ colorscheme smyck 
 
 
 
@@ -103,12 +115,23 @@
  noremap <leader>t :tabnew<CR>
 
  
- set expandtab
- set shiftwidth=2
- set softtabstop=2
+ "set expandtab
+ "set shiftwidth=2
+ "set softtabstop=2
 
- autocmd FileType javascript set expandtab shiftwidth=2
+ autocmd FileType javascript set expandtab shiftwidth=2 softtabstop=2
  " When vimrc is edited, reload it
  autocmd! bufwritepost .vimrc source ~/.vimrc
- set hlsearch
+ 
+ "-----------------------------------
+ "  Searching
+ "-----------------------------------
+ set hlsearch       "highlight search
+ set incsearch      "incremental search
+ set ignorecase     "search is case insensitive...
+ set smartcase      "..unless it contains an uppercase char
+
+ 
+ "----------------------------------
+ 
  set bs=indent,eol,start     " Backspace over everything in insert mode
