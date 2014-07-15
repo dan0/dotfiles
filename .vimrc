@@ -26,7 +26,7 @@
  Bundle 'pangloss/vim-javascript'
  Bundle 'nathanaelkane/vim-indent-guides'
  Bundle 'tpope/vim-fugitive'
- Bundle 'mhinz/vim-startify'
+ "Bundle 'mhinz/vim-startify'
  Bundle 'bling/vim-airline'
 
  "groenewege Less Highlighting

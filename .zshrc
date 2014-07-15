@@ -18,6 +18,8 @@ alias gmaster="cd /home/ddrayne/web-site-player && git checkout master && gsu --
 alias smartlingup="~/src/smartling-tools/bin/smartling-upload.py smartling.cfg"
 alias smartlingdown="~/src/smartling-tools/bin/smartling-download.py smartling.cfg"
 
+alias spm="npm -reg http://npm-registry.spotify.net -userconfig ~/.spmrc --always-auth=true"
+alias sudospm="sudo "
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
