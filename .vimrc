@@ -5,8 +5,8 @@
  syntax on
  let &t_Co=256
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+ set rtp+=~/.vim/bundle/Vundle.vim
+ call vundle#begin()
 
 
  "-------------------------------------
@@ -16,7 +16,7 @@
  " required! 
  Bundle 'gmarik/vundle'
 
- Bundle 'Valloric/YouCompleteMe'
+ "Bundle 'Valloric/YouCompleteMe'
  Bundle 'kien/ctrlp.vim'
  Bundle 'w0ng/vim-hybrid'
  Bundle 'mileszs/ack.vim'
@@ -28,6 +28,7 @@
  Bundle 'tpope/vim-fugitive'
  "Bundle 'mhinz/vim-startify'
  Bundle 'bling/vim-airline'
+ Bundle 'juvenn/mustache.vim'
 
  "groenewege Less Highlighting
  Bundle 'hail2u/vim-css3-syntax'
@@ -43,6 +44,7 @@
  "let g:tern_map_keys=1
  "let g:tern_show_argument_hints='on_hold'
 
+ call vundle#end()
  filetype plugin indent on     " required!
 
  " Automatically open nerdtree if no files open
